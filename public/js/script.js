@@ -1,7 +1,7 @@
 var TMW = window.TMW || {};
 
 TMW.TOUCH_SUPPORTED = "ontouchstart" in window ? true : false;
-TMW.MAX_TOUCHES_TO_TRACK = 6;
+TMW.MAX_TOUCHES_TO_TRACK = 9;
 
 TMW.Base = {
 
@@ -14,10 +14,63 @@ TMW.Base = {
 
 		TMW.Tracker.init();
 
+		TMW.Game.init();
+
 	}
 
+},
+
+TMW.Game = {
+
+	cells : [0,0,0,0,0,0,0,0,0],
+
+	init : function () {
+
+		setInterval(function () {
+			TMW.Game.popUp(TMW.Game.pickRandom());
+		}, '300');
+
+		setInterval(function () {
+			TMW.Game.popDown(TMW.Game.pickRandom(), false);
+		}, '300');
+
+	},
+
+	popUp : function (cellNum) {
+
+		var cell = $('.cell').eq(cellNum);
+
+
+		if (!cell.hasClass('active')) {
+			cell.addClass('active');
+		}
+
+	},
+
+	popDown : function (cellNum, hit) {
+
+		var cell = $('.cell').eq(cellNum);
+
+
+		if (cell.hasClass('active')) {
+			cell.removeClass('active');
+
+			//if its a hit, then score it
+			if (hit) {
+				log('score');
+			}
+		}
+
+	},
+
+	pickRandom : function () {
+		var random = Math.floor(Math.random() * (9 - 0) + 0);
+
+		return random;
+	}
 
 },
+
 TMW.Tracker = {
 
 	init : function () {
@@ -25,7 +78,6 @@ TMW.Tracker = {
 		// create a new Instance of the multitouch tracker. Only one instance is needed per application,
 		// so it's useful to define this instance as a part of a global namespace.
 		TMW.touchTracker = new TouchTracker (document.body, TMW.MAX_TOUCHES_TO_TRACK);
-		log(TMW.touchTracker);
 		TMW.touchTracker.onTouch = TMW.Tracker.touchHandler;
 		TMW.touchTracker.onMove = TMW.Tracker.moveHandler;
 		TMW.touchTracker.onRelease = TMW.Tracker.releaseHandler;
@@ -36,8 +88,16 @@ TMW.Tracker = {
 
 	touchHandler : function (trackedTouchesArray)
 	{
+
 			// When a touchstart is detected the multitouch tracker sends us the updated array of touch points.
-			log ("App:: [touchHandler] touchArray: ", trackedTouchesArray);
+			//log ("App:: [touchHandler] touchArray: ", trackedTouchesArray);
+			if ($(trackedTouchesArray[0].target).hasClass('pigeon')) {
+				var hitId = $(trackedTouchesArray[0].target).parent().attr('id');
+
+				TMW.Game.popDown($('.cell').index($('#' + hitId)), true);
+			}
+
+
 	},
 
 	moveHandler : function (trackedTouchesArray)
@@ -51,7 +111,7 @@ TMW.Tracker = {
 	{
 			// When a touchend is detected. This time we don't really need the array of touch points.
 
-			log ("App:: [releaseHandler] touches: ", releasedTouchesArray);
+			//log ("App:: [releaseHandler] touches: ", releasedTouchesArray);
 	}
 
 }
@@ -77,7 +137,7 @@ function TouchTracker (context, maxTouchesToTrack)
 		if ("ontouchstart" in window !== true)
 		{
 				//comment this back in!
-				//return;
+				return;
 		}
 
 		// ------------------------------------------------------------------------
@@ -282,64 +342,6 @@ function TouchTracker (context, maxTouchesToTrack)
 						}
 				}
 		};
-
-
-//  ===========================================
-//  === globals Element:true, NodeList:true ===
-//  ===========================================
-
-		$ = (function (document, $) {
-			var element = Element.prototype,
-				nodeList = NodeList.prototype,
-				forEach = 'forEach',
-				trigger = 'trigger',
-				each = [][forEach],
-
-				dummyEl = document.createElement('div');
-
-			nodeList[forEach] = each;
-
-			element.on = function (event, fn) {
-				this.addEventListener(event, fn, false);
-				return this;
-			};
-
-			nodeList.on = function (event, fn) {
-				each.call(this, function (el) {
-					el.on(event, fn);
-				});
-				return this;
-			};
-
-			element.trigger = function (type, data) {
-				var event = document.createEvent('HTMLEvents');
-				event.initEvent(type, true, true);
-				event.data = data || {};
-				event.eventName = type;
-				event.target = this;
-				this.dispatchEvent(event);
-				return this;
-			};
-
-			nodeList.trigger = function (event) {
-				each.call(this, function (el) {
-					el[trigger](event);
-				});
-				return this;
-			};
-
-			$ = function (s) {
-				var r = document.querySelectorAll(s || '☺'),
-					length = r.length;
-				return length == 1 ? r[0] : !length ? nodeList : r;
-			};
-
-			$.on = element.on.bind(dummyEl);
-			$.trigger = element[trigger].bind(dummyEl);
-
-			return $;
-		})(document);
-
 
 
 TMW.Base.init();
