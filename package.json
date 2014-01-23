@@ -1,0 +1,32 @@
+{
+  "name": "basic-setup",
+  "title": "Basic Setup",
+  "description": "A very basic node structure",
+  "url": "https://github.com/tmwagency/node-basic-setup",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "3.1.2",
+    "jade": "*",
+    "socket.io": "*",
+    "socket.io-client": "*",
+    "underscore": "*",
+    "async": "*"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-devtools": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-copy": "*"
+  },
+  "subdomain": "twitterpoll",
+  "engines": {
+    "node": "0.8.x"
+  }
+}
