@@ -1,11 +1,32 @@
 extends layouts/default
 
 block content
-	#state-1.state
-		p I am in state 1
+	#state-1.state.state-home
+		p Play the game
 
-	#state-2.state
-		p I am in state 2
+	#state-2.state.state-instruction
+		p Make someone else play the game too
 
 	#state-3.state
-		p I am i state 3
+		#game-state.state-game
+			p This is the game board
+
+			.cells
+				.cell.cell-1
+					hit me
+				.cell.cell-2
+					hit me
+				.cell.cell-3
+					hit me
+				.cell.cell-4
+					hit me
+				.cell.cell-5
+					hit me
+				.cell.cell-6
+					hit me
+				.cell.cell-7
+					hit me
+				.cell.cell-8
+					hit me
+				.cell.cell-9
+					hit me
