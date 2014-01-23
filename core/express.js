@@ -32,7 +32,7 @@ module.exports = function (app, config) {
 
 
 	app.configure(function () {
-		app.set('port', process.env.PORT || 3001);
+		app.set('port', process.env.PORT || 3005);
 
 		// expose package.json to views
 		app.use(function (req, res, next) {

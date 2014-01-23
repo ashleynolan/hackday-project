@@ -14,7 +14,7 @@ var sharedConfig = {
 config = {
 	local: {
 		mode:	'local',
-		port:	3001,
+		port:	3005,
 		app: {
 			name: 'Node Basic Setup - Local'
 		},
@@ -24,7 +24,7 @@ config = {
 
 	development: {
 		mode:	'dev',
-		port:	3001,
+		port:	3005,
 		app: {
 			name: 'Node Basic Setup - Dev'
 		},
@@ -33,7 +33,7 @@ config = {
 
 	staging: {
 		mode:	'staging',
-		port:	3001,
+		port:	3005,
 		app: {
 			name: 'Node Basic Setup - Staging'
 		},
@@ -42,7 +42,7 @@ config = {
 
 	production: {
 		mode:	'prod',
-		port:	3001,
+		port:	3005,
 		app: {
 			name: 'Node Basic Setup - Production'
 		},
@@ -51,7 +51,7 @@ config = {
 
 	hosts: [
 		{
-			domain: 'basic-setup.local',
+			domain: 'ashtag.tmwtest.co.uk',
 			target: ['localhost:3001']
 		}
 	]
