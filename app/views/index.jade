@@ -3,16 +3,21 @@ extends layouts/default
 block content
 	#state-1.state.state-home
 		.text-wrap
+			p.page-home-text
+			p.page-home-subheader When you play...
 			h1.page-home-title Poke
 				span the &#8203;
 				| Pigeons
 				.pigeon-text
-			p.page-home-text to top up your oyster card
+
 
 		.picker
 
-		.start.start-left
-		.start.start-right
+		.touchbuddy.start
+			.friend
+
+		.pigeon.pigeon-left
+		.pigeon.pigeon-right
 
 		.branch
 
@@ -20,8 +25,18 @@ block content
 			.mol
 			.tfl
 
-	#state-2.state.state-instruction
-		p Make someone else play the game too
+	.state-instruction
+		.pigeon
+		.final-overlay-wrap
+			.instr-text
+				h2.instr-header With your new found friend,
+				p.instr-subheader Poke as many pigeons as you can in
+				p.instr-time 30 seconds
+
+				p.instr-final quickly now, your bus is nearly here!
+
+
+			p.instr-go Go!
 
 	#state-3.state.state-game
 
@@ -29,22 +44,56 @@ block content
 		.branch-2
 		.branch-3
 
+		.score
+			h2
+				span.score-text Together you've earned
+				span.total £0.00
+
+		.timer
+			span.timer-num 30
+			span.timer-text seconds left
+
+
 		.cells.game-grid
 			#cell-1.cell.cell-1
 				.pigeon
+				.smash
 			#cell-2.cell.cell-2
 				.pigeon
+				.smash
 			#cell-3.cell.cell-3
 				.pigeon
+				.smash
 			#cell-4.cell.cell-4
 				.pigeon
+				.smash
 			#cell-5.cell.cell-5
 				.pigeon
+				.smash
 			#cell-6.cell.cell-6
 				.pigeon
+				.smash
 			#cell-7.cell.cell-7
 				.pigeon
+				.smash
 			#cell-8.cell.cell-8
 				.pigeon
+				.smash
 			#cell-9.cell.cell-9
 				.pigeon
+				.smash
+
+		.final-overlay
+			.pigeon
+			.final-overlay-wrap
+				h2.final-header Coooo-ol!
+				p.final-subheader Together you poked
+					span.final-total 87 Pigeons
+
+				.final-amount
+					p Tap your Oyster card here to top-up &#8203;
+						span.amount 0p
+
+				p.final-smalltext Now give your friend a high five!
+
+				.instr-go.play-again Play again

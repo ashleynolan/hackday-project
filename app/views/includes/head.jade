@@ -1,6 +1,7 @@
 head
 	meta(charset="utf-8")
 	meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+	meta(name="apple-mobile-web-app-capable",content="yes")
 	title= pkg.title + ' - ' + title
 	meta(name="description", content=pkg.description)
 
@@ -20,6 +21,8 @@ head
 	script(src="//use.typekit.net/lpn3lbe.js")
 	script.
 		try{Typekit.load();}catch(e){}
+
+	script(src="http://fast.fonts.net/jsapi/66d4e6c0-0d59-4303-98c3-f88990391d43.js")
 
 	// Application styles
 	link(rel='stylesheet', href='/css/kickoff.css')

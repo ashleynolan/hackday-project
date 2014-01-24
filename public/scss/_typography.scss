@@ -103,9 +103,9 @@ h1, .h1, .alpha {
 }
 
 h2, .h2, .beta {
-	@include font-size(24);
+	@include font-size(46);
 	margin-top: 0;
-	margin-bottom: $base-line-height + px;
+	line-height: 1;
 }
 
 h3, .h3, .gamma {

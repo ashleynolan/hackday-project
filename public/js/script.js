@@ -16,21 +16,42 @@ TMW.Base = {
 
 
 
-		$('.start').on('touchstart', function () {
-			TMW.Base.moveToState(3);
+		$('.picker').on('touchstart', function () {
+			TMW.Base.moveToState(2);
 		});
+		$('.start').on('touchstart', function () {
+			TMW.Base.moveToState(25);
+		});
+
+		$('.play-again').on('touchstart', function () {
+			window.location.href = "http://ashtag.tmwtest.co.uk/";
+		});
+		//TMW.Base.moveToState(3);
 
 	},
 
 	moveToState : function (state) {
 
 		switch (state) {
+			case 25:
+				$('.state-instruction').addClass('show');
+				$('.instr-go').on('touchstart', function () {
+					TMW.Base.moveToState(3);
+				});
+				break;
 			case 2:
-				log('moving');
+				$('.picker').fadeOut();
+				$('.touchbuddy').addClass('show');
 				break;
 			case 3:
 				$('#state-1').fadeOut();
+				$('.state-instruction').removeClass('show');
 				TMW.Game.init();
+				break;
+			case 4:
+				$('.final-overlay').addClass('show');
+				$('.final-total').html(TMW.Game.score + ' pigeons')
+				$('.amount').html(TMW.Game.score + 'p')
 				break;
 		}
 
@@ -41,16 +62,42 @@ TMW.Base = {
 TMW.Game = {
 
 	cells : [0,0,0,0,0,0,0,0,0],
+	score : 0,
+	time : 30,
+
+	gameTimer : null,
+
+	popUpTimer : null,
+	popDownTimer : null,
 
 	init : function () {
 
-		setInterval(function () {
+		TMW.Game.popUpTimer = setInterval(function () {
 			TMW.Game.popUp(TMW.Game.pickRandom());
 		}, '300');
 
-		setInterval(function () {
+		TMW.Game.popDownTimer = setInterval(function () {
 			TMW.Game.popDown(TMW.Game.pickRandom(), false);
 		}, '300');
+
+		TMW.Game.startTimer();
+
+	},
+
+	startTimer : function ()  {
+
+		TMW.Game.gameTimer = setInterval(function () {
+			TMW.Game.time--;;
+			$('.timer-num').html(TMW.Game.time);
+
+			if (TMW.Game.time === 0) {
+				TMW.Base.moveToState(4);
+				clearInterval(TMW.Game.gameTimer);
+				clearInterval(TMW.Game.popDownTimer);
+				clearInterval(TMW.Game.popUpTimer);
+
+			}
+		}, '1000');
 
 	},
 
@@ -79,11 +126,21 @@ TMW.Game = {
 			//if its a hit, then score it
 			if (hit) {
 				cell.addClass('hit');
-				log('score');
+
+				TMW.Game.incrementScore();
 			}
 
 			TMW.Game.resetCell(cell, cellNum);
 		}
+
+	},
+
+	incrementScore : function () {
+
+		TMW.Game.score = TMW.Game.score + 1;
+		var visualScore = (TMW.Game.score / 100);
+
+		$('.total').html('£' + visualScore.toFixed(2));
 
 	},
 
@@ -95,7 +152,7 @@ TMW.Game = {
 				cell.removeClass('hit');
 			}
 
-		}, '200');
+		}, '250');
 	},
 
 	pickRandom : function () {
