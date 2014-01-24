@@ -4,9 +4,17 @@ block content
 	#state-1.state.state-home
 		.text-wrap
 			h1.page-home-title Poke
-				span the
+				span the &#8203;
 				| Pigeons
-			p.page-home-text to top up your oyster
+				.pigeon-text
+			p.page-home-text to top up your oyster card
+
+		.picker
+
+		.start.start-left
+		.start.start-right
+
+		.branch
 
 		.footer
 			.mol
@@ -15,25 +23,28 @@ block content
 	#state-2.state.state-instruction
 		p Make someone else play the game too
 
-	#state-3.state
-		#game-state.state-game
+	#state-3.state.state-game
 
-			.cells
-				#cell-1.cell.cell-1
-					.pigeon
-				#cell-2.cell.cell-2
-					.pigeon
-				#cell-3.cell.cell-3
-					.pigeon
-				#cell-4.cell.cell-4
-					.pigeon
-				#cell-5.cell.cell-5
-					.pigeon
-				#cell-6.cell.cell-6
-					.pigeon
-				#cell-7.cell.cell-7
-					.pigeon
-				#cell-8.cell.cell-8
-					.pigeon
-				#cell-9.cell.cell-9
-					.pigeon
+		.branch-1
+		.branch-2
+		.branch-3
+
+		.cells.game-grid
+			#cell-1.cell.cell-1
+				.pigeon
+			#cell-2.cell.cell-2
+				.pigeon
+			#cell-3.cell.cell-3
+				.pigeon
+			#cell-4.cell.cell-4
+				.pigeon
+			#cell-5.cell.cell-5
+				.pigeon
+			#cell-6.cell.cell-6
+				.pigeon
+			#cell-7.cell.cell-7
+				.pigeon
+			#cell-8.cell.cell-8
+				.pigeon
+			#cell-9.cell.cell-9
+				.pigeon

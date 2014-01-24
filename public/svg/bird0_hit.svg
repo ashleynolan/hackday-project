@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="70px" height="280px" viewBox="0 0 70 280" enable-background="new 0 0 70 280" xml:space="preserve">
+<g>
+	<path fill="#14141E" d="M70,245c0,19.33-15.67,35-35,35l0,0c-19.33,0-35-15.67-35-35V35C0,15.67,15.67,0,35,0l0,0
+		c19.33,0,35,15.67,35,35V245z"/>
+	<circle fill="#FF7F00" cx="24.5" cy="35" r="7"/>
+	<circle fill="#FF7F00" cx="45.5" cy="35" r="7"/>
+	<polygon fill="#32323C" points="70,211 70,97.3 63,90.3 56,97.3 49,90.3 42,97.3 35,90.3 28,97.3 21,90.3 14,97.3 7,90.3 0,97.3 
+		0,211 	"/>
+	<circle fill="#50505A" cx="35" cy="54.6" r="10.5"/>
+	<polyline fill="#50505A" points="24.5,54.6 35,82.6 45.5,54.6 	"/>
+	<circle fill="#C8C8D2" cx="32.2" cy="46.9" r="5.25"/>
+	<circle fill="#C8C8D2" cx="37.8" cy="46.9" r="5.25"/>
+	<circle fill="#1D1D1B" cx="40.6" cy="35.7" r="2.1"/>
+	<circle fill="#FF7F00" cx="50.4" cy="29.4" r="1.4"/>
+	<circle fill="#FF7F00" cx="52.5" cy="37.1" r="1.4"/>
+	<circle fill="#FF7F00" cx="53.9" cy="33.6" r="2.8"/>
+	<g>
+		<circle fill="#FF7F00" cx="14" cy="35" r="1.4"/>
+		<rect x="14" y="34" fill="#FF7F00" width="14" height="2"/>
+	</g>
+	<path fill="none" stroke="#1D1D1B" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M21.7,35.7
+		c0-1.546,1.253-2.8,2.8-2.8c1.547,0,2.8,1.254,2.8,2.8"/>
+	<path fill="#14141E" d="M60.877,8.41c-1.167,0.002-2.159-0.948-2.206-2.114l-0.104-2.595c-0.045-1.166-0.86-1.569-1.81-0.895
+		l-2.253,1.598c-0.951,0.673-2.332,0.483-3.072-0.421l-1.547-1.895c-0.742-0.902-1.676-0.749-2.076,0.344l-0.937,2.552
+		c-0.267,0.731-0.923,1.269-1.666,1.468l11.182,13.382c0,0,2.548,0.638,5.151,1.374c0.255-0.469,0.651-0.861,1.15-1.068l2.51-1.044
+		c1.074-0.446,1.188-1.385,0.255-2.086l-1.959-1.467c-0.936-0.701-1.183-2.073-0.552-3.051l1.501-2.319
+		c0.634-0.978,0.196-1.774-0.97-1.771L60.877,8.41z"/>
+	<circle fill="#282832" cx="48.65" cy="14.35" r="5.25"/>
+	<circle fill="#282832" cx="44.45" cy="18.55" r="3.15"/>
+</g>
+</svg>

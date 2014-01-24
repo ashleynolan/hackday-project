@@ -98,7 +98,7 @@ h1, .h1, .alpha {
 	margin-bottom: ($base-line-height * 2) + px;
 
 	@include respond-min($breakpoint-narrow) {
-		@include font-size(100);
+		@include font-size(124);
 	}
 }
 

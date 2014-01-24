@@ -14,7 +14,25 @@ TMW.Base = {
 
 		TMW.Tracker.init();
 
-		TMW.Game.init();
+
+
+		$('.start').on('touchstart', function () {
+			TMW.Base.moveToState(3);
+		});
+
+	},
+
+	moveToState : function (state) {
+
+		switch (state) {
+			case 2:
+				log('moving');
+				break;
+			case 3:
+				$('#state-1').fadeOut();
+				TMW.Game.init();
+				break;
+		}
 
 	}
 
@@ -41,7 +59,10 @@ TMW.Game = {
 		var cell = $('.cell').eq(cellNum);
 
 
-		if (!cell.hasClass('active')) {
+		if (!cell.hasClass('active') && TMW.Game.cells[cellNum] === 0) {
+			//set active state to true
+			TMW.Game.cells[cellNum] = 1;
+
 			cell.addClass('active');
 		}
 
@@ -57,10 +78,24 @@ TMW.Game = {
 
 			//if its a hit, then score it
 			if (hit) {
+				cell.addClass('hit');
 				log('score');
 			}
+
+			TMW.Game.resetCell(cell, cellNum);
 		}
 
+	},
+
+	resetCell : function (cell, cellNum) {
+		setTimeout(function () {
+			TMW.Game.cells[cellNum] = 0;
+
+			if (cell.hasClass('hit')) {
+				cell.removeClass('hit');
+			}
+
+		}, '200');
 	},
 
 	pickRandom : function () {
